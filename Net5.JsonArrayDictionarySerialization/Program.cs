@@ -31,16 +31,18 @@ namespace Net5.ConfigurationExtension.JsonArrayDictionarySerialization
                 .AddEnvironmentVariables()
                 .Build();
 
-            var jsonArray = config.GetSection("Array").Get<Dictionary<string, string>>();
-            s.AddSingleton(new DummyArray
-            {
-                Dictionary = jsonArray
-            });
-
+            // deserialization works when the key value pair collection is described as json object.
             var jsonObject = config.GetSection("Object").Get<Dictionary<string, string>>();
             s.AddSingleton(new DummyObject
             {
                 Dictionary = jsonObject
+            });
+
+            // deserialization does not work when its described as json array.
+            var jsonArray = config.GetSection("Array").Get<Dictionary<string, string>>();
+            s.AddSingleton(new DummyArray
+            {
+                Dictionary = jsonArray
             });
         }
     }
