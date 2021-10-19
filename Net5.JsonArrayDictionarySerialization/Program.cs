@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Net5.ConfigurationExtension.JsonArrayDictionarySerialization
+namespace Net5.JsonArrayDictionarySerialization
 {
     public class Program
     {
